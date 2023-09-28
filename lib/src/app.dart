@@ -2,10 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'sample_feature/sample_item_details_view.dart';
-import 'sample_feature/sample_item_list_view.dart';
 import 'settings/settings_controller.dart';
 import 'settings/settings_view.dart';
+
+import 'login/login_view.dart';
+
+import 'home/home_view.dart';
+
+import 'income/income_view.dart';
+
+import 'expenditure/expenditure_view.dart';
+
+import 'cash_flow/cash_flow_view.dart';
+
+import 'user/user_view.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -69,15 +79,25 @@ class MyApp extends StatelessWidget {
                 switch (routeSettings.name) {
                   case SettingsView.routeName:
                     return SettingsView(controller: settingsController);
-                  case SampleItemDetailsView.routeName:
-                    return const SampleItemDetailsView();
-                  case SampleItemListView.routeName:
+                  case LoginView.routeName:
+                    return const LoginView();
+                  case HomeView.routeName:
+                    return const HomeView();
+                  case IncomeView.routeName:
+                    return const IncomeView();
+                  case ExpenditureView.routeName:
+                    return const ExpenditureView();
+                  case CashFlowView.routeName:
+                    return const CashFlowView();
+                  case UserView.routeName:
+                    return const UserView();
                   default:
-                    return const SampleItemListView();
+                    return const LoginView();
                 }
               },
             );
           },
+          debugShowCheckedModeBanner: false, // disable debug banner
         );
       },
     );
