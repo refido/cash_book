@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../settings/settings_view.dart';
+
 class CashFlowView extends StatefulWidget {
   const CashFlowView({super.key});
 
@@ -27,6 +29,18 @@ class CashFlowViewState extends State<CashFlowView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: const Text('Cash Book'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.restorablePushNamed(context, SettingsView.routeName);
+            },
+          ),
+        ],
+      ),
       body: Column(
         children: [
           Expanded(

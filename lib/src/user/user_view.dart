@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../settings/settings_view.dart';
+
 class UserView extends StatefulWidget {
   const UserView({super.key});
 
@@ -10,16 +12,27 @@ class UserView extends StatefulWidget {
 }
 
 class UserViewState extends State<UserView> {
-  final String _name = 'Refido Berliano'; // replace with actual username
-  final String _nim = 'johndoe@example.com'; // replace with actual email
-  final String _date = '25 September 2023'; // replace with actual date
-  final String _imageUrl =
-      'https://via.placeholder.com/150'; // replace with actual image URL
+  final String _name = 'Refido Berliano';
+  final String _nim = '2241727028';
+  final String _date = '25 September 2023';
+  final String _image = 'assets/images/user.jpg';
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: const Text('Cash Book'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.restorablePushNamed(context, SettingsView.routeName);
+            },
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -107,8 +120,8 @@ class UserViewState extends State<UserView> {
             Row(
               children: [
                 CircleAvatar(
-                  radius: 75,
-                  backgroundImage: NetworkImage(_imageUrl),
+                  radius: 80,
+                  backgroundImage: AssetImage(_image),
                 ),
                 const SizedBox(width: 20),
                 Column(
